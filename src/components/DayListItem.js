@@ -4,11 +4,11 @@ import "components/DayListItem.scss";
 
 const formatSpots = (spots) => {
   if (spots === 0) {
-    return <h3 className="text--light">no spots remaining</h3>;
+    return "no spots remaining";
   } else if (spots === 1) {
-    return <h3 className="text--light">1 spot remaining</h3>;
+    return "1 spot remaining";
   }
-  return <h3 className="text--light">{spots} spots remaining</h3>;
+  return `${spots} spots remaining`;
 };
 
 export default function DayListItem(props) {

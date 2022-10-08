@@ -25,14 +25,14 @@ export default function Appointment(props) {
 
       {mode === SHOW && (
         <Show
-          student={props.interview.student}
-          interviewer={props.interview.interviewer}
+          student={props.interview?.student}
+          interviewer={props.interview?.interviewer}
         />)}
 
       {mode === CREATE && (
         < Form
-          interviewers={[]}
-          onCancel={() => {back(EMPTY)}}
+          interviewers={props.interviewers} // from Application.js 'interviewers={dailyInterviewers}'
+          onCancel={() => {back()}}
         />)}
     </article>
   );

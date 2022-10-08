@@ -31,3 +31,19 @@ export function getInterview(state, interview) {
 
   return {student, interviewer}
 }
+
+export function getInterviewersForDay(state, day) {
+  // returns an empty array when the interviewer data is empty
+  if (state.days.length === 0) {
+    return [];
+  }
+  
+  // obj for stats.interviewers
+  const interviewerObj = state.days.find(d => d.name === day);
+  // returns an empty array when the day is not found
+  if (!interviewerObj) {
+    return [];
+  }
+
+  return interviewerObj.interviewers.map(interviewerid => state.interviewers[interviewerid]);
+}

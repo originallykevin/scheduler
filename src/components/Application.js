@@ -31,6 +31,29 @@ export default function Application(props) {
       });
   }, []);
 
+  function bookInterview(id, interview) {
+    console.log(id, interview);
+
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
+
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+
+    // update the appointment with the interview so saved data is not lost
+    return axios.put(`/api/appointments/${id}`, {interview: interview})
+      .then(() => {
+        setState({
+          ...state,
+          appointments
+        });
+      });
+  }
+
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const dailyInterviewers = getInterviewersForDay(state, state.day);
   const AppointmentsArray = dailyAppointments.map((appointment) => {
@@ -42,6 +65,7 @@ export default function Application(props) {
         time={appointment.time}
         interview={interview}
         interviewers={dailyInterviewers}
+        bookInterview={bookInterview}
       />
     );
   });

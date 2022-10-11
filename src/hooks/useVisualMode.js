@@ -16,6 +16,11 @@ export default function useVisualMode(initial) {
       arr.pop() 
       arr.push(newMode)
       setHistory(arr);
+
+      // test code below
+      // setHistory((prev) => {
+      //   const arr = [... prev.slice(0, prev.length - 1), newMode];
+      // })
     }
     setMode(newMode);
   }

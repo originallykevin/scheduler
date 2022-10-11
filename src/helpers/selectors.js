@@ -19,17 +19,22 @@ export function getAppointmentsForDay(state, day) {
 export function getInterview(state, interview) {
 
   // returns null if no interview is booked
-  if (!interview) {
+  if (!interview ) {
     return null;
   }
+  let result = {}
   // student name
   const student = interview.student
   // console.log(student)
   // specific interviewer 
   const interviewer = state.interviewers[interview.interviewer]
   // console.log(interviewer)
+  // if interview values are present return them. otherwise don't return them.
+  if (interviewer) {
+    result = {student, interviewer}
+  }
 
-  return {student, interviewer}
+  return result;
 }
 
 export function getInterviewersForDay(state, day) {

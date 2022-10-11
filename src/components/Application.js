@@ -14,12 +14,14 @@ export default function Application(props) {
     cancelInterview
   } = useApplicationData();
 
+  console.log('state', state)
+  console.log('state.day', state.day)
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const dailyInterviewers = getInterviewersForDay(state, state.day);
   const AppointmentsArray = dailyAppointments.map((appointment) => {
     return (
       < Appointment
-        keys={appointment.id}
+        key={appointment.id}
         {...appointment}
         interview={getInterview(state, appointment.interview)}
         interviewers={dailyInterviewers}
@@ -54,6 +56,7 @@ export default function Application(props) {
       <section className="schedule">
         <ul>
           {AppointmentsArray}
+          <Appointment key="last" time="5pm" />
         </ul>
       </section>
     </main>

@@ -53,7 +53,7 @@ export default function useApplicationData(props) {
       ...state.appointments[id],
       interview: { ...interview }
     };
-
+    
     const appointments = {
       ...state.appointments,
       [id]: appointment

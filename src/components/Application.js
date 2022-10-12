@@ -14,8 +14,6 @@ export default function Application(props) {
     cancelInterview
   } = useApplicationData();
 
-  console.log('state', state)
-  console.log('state.day', state.day)
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const dailyInterviewers = getInterviewersForDay(state, state.day);
   const AppointmentsArray = dailyAppointments.map((appointment) => {

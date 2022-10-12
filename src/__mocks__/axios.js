@@ -106,5 +106,29 @@ export default {
         data: fixtures.interviewers
       });
     }
+  }),
+
+  delete: jest.fn(url => {
+    if (url.includes("/api/days")) {
+      return Promise.resolve({
+        status: 204,
+        statusText: "No Content",
+        data: fixtures.days
+      });
+    }
+    if (url.includes("/api/appointments")) {
+      return Promise.resolve({
+        status: 204,
+        statusText: "No Content",
+        data: fixtures.appointments
+      });
+    }
+    if (url.includes("/api/interviewers")) {
+      return Promise.resolve({
+        status: 204,
+        statusText: "No Content",
+        data: fixtures.interviewers
+      });
+    }
   })
 };

@@ -42,10 +42,7 @@ export default function Appointment(props) {
   }
 
   function onDelete(event) {
-    // const interview = {
-    //   student: name,
-    //   interviewer
-    // };
+
     transition(DELETE, true);
     props.cancelInterview(props.id)
       .then(() => {
@@ -100,13 +97,13 @@ export default function Appointment(props) {
 
       {mode === ERROR_SAVE && (
         < Error
-          message='Error. Please try again'
+          message='Could not save'
           onClose={back}
         />)}
 
       {mode === ERROR_DELETE && (
         < Error
-          message='Error. Please try again'
+          message='Could not delete'
           onClose={back}
         />)}
     </article>

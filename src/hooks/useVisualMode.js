@@ -7,36 +7,31 @@ export default function useVisualMode(initial) {
 
   // Transition
   function transition(newMode, replace = false) {
-    const arr = [...history]
+    const arr = [...history];
     if (!replace) {
       setHistory(prev => [...prev, newMode]);
     } else {
       // if replace true, pop, add newMode, set that arr to setHitory
       // [1, 2, 3] => [1, 2] newMode = 4 => [1, 2, 4]
-      arr.pop() 
-      arr.push(newMode)
+      arr.pop();
+      arr.push(newMode);
       setHistory(arr);
-
-      // test code below
-      // setHistory((prev) => {
-      //   const arr = [... prev.slice(0, prev.length - 1), newMode];
-      // })
     }
     setMode(newMode);
   }
-  
+
   // Transition back to previous
   function back() {
     // copy of history array
     const arr = [...history];
 
     if (history.length > 1) {
-      setMode(history[history.length-2]);
+      setMode(history[history.length - 2]);
       arr.pop();
       setHistory(arr);
-    } 
+    }
     else {
-      setMode(initial) // last item in array
+      setMode(initial); // last item in array
     }
   }
 

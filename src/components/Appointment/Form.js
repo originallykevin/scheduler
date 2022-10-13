@@ -28,7 +28,7 @@ export default function Form(props) {
       return;
     }
 
-    setError("")
+    setError("");
     props.onSave(student, interviewer);
   }
 

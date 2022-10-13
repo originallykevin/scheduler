@@ -2,8 +2,6 @@ import React from "react";
 import DayListItem from "./DayListItem";
 
 export default function DayList(props) {
-  // add line below as rendering before we could map. Mentor help.
-  // const days = props.days[0] || []
   const DayListItemArray = props.days.map((day) => {
     return (
       <DayListItem

@@ -4,7 +4,7 @@ import axios from "axios";
 const updateSpots = function(state, appointments) {
 
   // find day object
-  const dayObj = state.days.find(d=> d.name === state.day);
+  const dayObj = state.days.find(d => d.name === state.day);
 
   let spots = 0;
   for (const id of dayObj.appointments) {
@@ -13,7 +13,7 @@ const updateSpots = function(state, appointments) {
       spots++;
     }
   }
-  
+
   // new day object
   const day = { ...dayObj, spots };
 
@@ -25,7 +25,6 @@ const updateSpots = function(state, appointments) {
 
 export default function useApplicationData(props) {
   const setDay = day => setState({ ...state, day });
-  // const setDays = (days) => setState(prev => ({ ...prev, days }));
   const [state, setState] = useState({
     day: "Monday",
     days: [],
@@ -53,7 +52,7 @@ export default function useApplicationData(props) {
       ...state.appointments[id],
       interview: { ...interview }
     };
-    
+
     const appointments = {
       ...state.appointments,
       [id]: appointment
@@ -67,7 +66,7 @@ export default function useApplicationData(props) {
         const days = updateSpots(state, appointments);
         setState(prev => ({
           ...prev,
-          appointments, 
+          appointments,
           days
         }));
       });
